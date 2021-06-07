@@ -1,4 +1,5 @@
 let buttons = document.querySelectorAll(".buttonIcon img");
+let content = document.querySelector(".content");
 let p = document.querySelector("p");
 console.log(buttons);
 
@@ -32,17 +33,42 @@ buttons[1].addEventListener("click", () => {
 
 
 function changeVisibility() {
+    p.classList.remove("animation");
+    p.remove();
+
     if (count % 2 == 0) {
+        content.prepend(p);
+
+        console.log(p.classList);
         johnPicture.style.display = "block";
+        johnPicture.style.animation = "fadeIn 1s"
         tanyaPicture.style.display = "none";
+
+
         p.innerText = johnText;
+        p.classList.toggle("animation");
+
+
         name.innerText = " John Tarkpor";
         occupation.innerText = "Front end Developer";
+
+
+
+
     }
     else {
+        content.prepend(p);
+
+
+
         johnPicture.style.display = "none";
         tanyaPicture.style.display = "block";
+        tanyaPicture.style.animation = "fadeIn 1s";
         p.innerText = tanyaText;
+        p.classList.toggle("animation");
+
+
+
         name.innerText = "Tanya Sinclair";
         occupation.innerText = "UX Engineer";
 
@@ -50,4 +76,8 @@ function changeVisibility() {
 
     count++;
 
+
+
 }
+
+
